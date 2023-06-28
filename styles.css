@@ -1,0 +1,38 @@
+.container {
+    position: relative;
+    width: 100%px;
+    height: 100%;
+    border: 1px solid black;
+  } 
+
+  .box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .center-left {
+    top: 350%;
+    left: 10%;
+    transform: translate(0, -50%);
+  }
+
+  .bottom-left {
+    bottom: -450px;
+    left: 10%;
+  }
+
+  .top-right {
+    top: 250%;
+    right: 15%;
+  }
+
+  .center-right {
+    top: 450%;
+    right: 25%;
+    transform: translate(0, -50%);
+  }

@@ -1,3 +1,34 @@
+const form = document.querySelector("form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(event.target.name.value)
+  console.log(event.target.puppetTypeArmature.value)
+  console.log(event.target.armatureSize.value)
+  console.log(event.target.materialCategory.value)
+  console.log(event.target.price.value)
+  console.log(event.target.tiedown.value)
+  console.log(event.target.eyeColor.value)
+  console.log(event.target.threadSize.value)
+  console.log(event.target.imgUrl.value)
+  console.log(event.target.hands.value)
+  console.log(event.target.inStock.checked)
+  
+  const puppetList = document.querySelector("ul");
+  const puppetItem = document.createElement("li");
+  const puppetImage = document.createElement("img");
+  const puppetContainer = document.createElement("div");
+  const puppetNameHeader = document.createElement("h2")
+  puppetImage.src = event.target.imgUrl.value;
+  puppetContainer.classList.add("top-right", "box");
+  puppetNameHeader.textContent = event.target.name.value;
+  puppetContainer.append(puppetNameHeader)
+  puppetItem.append(puppetImage, puppetContainer);
+  puppetList.append(puppetItem);
+
+
+  form.reset();
+})
+
 /*set up html structure
 select the elements from the dom
 h1 
