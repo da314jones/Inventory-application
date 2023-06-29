@@ -2,16 +2,16 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   console.log(event.target.name.value)
-  console.log(event.target.puppetTypeArmature.value)
+  console.log(event.target.armaturePart.value)
+  console.log(event.target.quantity.value)
   console.log(event.target.armatureSize.value)
-  console.log(event.target.materialCategory.value)
   console.log(event.target.price.value)
-  console.log(event.target.tiedown.value)
-  console.log(event.target.eyeColor.value)
-  console.log(event.target.threadSize.value)
   console.log(event.target.imgUrl.value)
-  console.log(event.target.hands.value)
   console.log(event.target.inStock.checked)
+  // console.log(event.target.tiedown.value)
+  // console.log(event.target.eyeColor.value)
+  // console.log(event.target.threadSize.value)
+  // console.log(event.target.hands.value)
   
   const puppetList = document.querySelector("ul");
   const puppetItem = document.createElement("li");
