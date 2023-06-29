@@ -37,6 +37,11 @@ form.addEventListener("submit", (event) => {
   form.reset();
 })
 
+const inStockButton = document.querySelector("button[type='inStock']");
+inStockButton.addEventListener("click", () => {
+  const inStockCheckbox = document.getElementById("in-stock");
+  inStockCheckbox.checked = !inStockCheckbox.checked;
+});
 /*set up html structure
 select the elements from the dom
 h1 
