@@ -2,30 +2,38 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   console.log(event.target.name.value)
-  console.log(event.target.armaturePart.value)
+  console.log(event.target.puppetType.value)
+  console.log(event.target.puppetSize.value)
   console.log(event.target.quantity.value)
-  console.log(event.target.armatureSize.value)
-  console.log(event.target.price.value)
+  console.log(event.target.moneyField.value)
   console.log(event.target.imgUrl.value)
   console.log(event.target.inStock.checked)
-  // console.log(event.target.tiedown.value)
-  // console.log(event.target.eyeColor.value)
-  // console.log(event.target.threadSize.value)
-  // console.log(event.target.hands.value)
   
   const puppetList = document.querySelector("ul");
   const puppetItem = document.createElement("li");
   const puppetImage = document.createElement("img");
   const puppetContainer = document.createElement("div");
-  const puppetNameHeader = document.createElement("h2")
+  const puppetNameHeader = document.createElement("h2");
+  const puppetType = document.createElement("li");
+  const puppetSize =document.createElement("li");
+  const quantity = document.createElement("li");
+  const moneyField =document.createElement("li");
   puppetImage.src = event.target.imgUrl.value;
   puppetContainer.classList.add("top-right", "box");
+  puppetType.classList.add("type");
+  puppetSize.classList.add("size");
+  quantity.classList.add("quantity");
+  moneyField.classList.add("price");
   puppetNameHeader.textContent = event.target.name.value;
-  puppetContainer.append(puppetNameHeader)
+  puppetType.textContent = event.target.puppetType.value;
+  puppetSize.textContent = event.target.puppetSize.value;
+  quantity.textContent = event.target.quantity.value;
+  moneyField.textContent = event.target.moneyField.value;
+  puppetContainer.append(puppetNameHeader, puppetType, puppetSize, quantity)
   puppetItem.append(puppetImage, puppetContainer);
   puppetList.append(puppetItem);
 
-
+  
   form.reset();
 })
 
