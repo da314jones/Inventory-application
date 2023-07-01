@@ -5,7 +5,7 @@ form.addEventListener("submit", (event) => {
   console.log(event.target.puppetType.value)
   console.log(event.target.puppetSize.value)
   console.log(event.target.quantity.value)
-  console.log(event.target.moneyField.value)
+  console.log(event.target.price.value)
   console.log(event.target.imgUrl.value)
   console.log(event.target.inStock.checked)
   
@@ -17,19 +17,38 @@ form.addEventListener("submit", (event) => {
   const puppetType = document.createElement("li");
   const puppetSize =document.createElement("li");
   const quantity = document.createElement("li");
-  const moneyField =document.createElement("li");
+  const price =document.createElement("li");
+  const inStock = document.createElement("li");
+  const toggleButton = document.createElement("button");
+
   puppetImage.src = event.target.imgUrl.value;
   puppetContainer.classList.add("top-right", "box");
   puppetType.classList.add("type");
   puppetSize.classList.add("size");
   quantity.classList.add("quantity");
-  moneyField.classList.add("price");
-  puppetNameHeader.textContent = event.target.name.value;
-  puppetType.textContent = event.target.puppetType.value;
-  puppetSize.textContent = event.target.puppetSize.value;
-  quantity.textContent = event.target.quantity.value;
-  moneyField.textContent = event.target.moneyField.value;
-  puppetContainer.append(puppetNameHeader, puppetType, puppetSize, quantity)
+  price.classList.add("price");
+
+  puppetNameHeader.textContent = "Model Name: " + event.target.name.value;
+  puppetType.textContent = "Model Type: " + event.target.puppetType.value;
+  puppetSize.textContent = "Model Size: " + event.target.puppetSize.value;
+  quantity.textContent = "Quantity: " + event.target.quantity.value;
+  price.textContent = "Price Per Unit: " + event.target.price.value;
+  let stock = event.target.inStock.checked;
+  inStock.textContent = stock ? "In Stock" : "Out Of Stock";
+
+  toggleButton.textContent = stock ? "Out of Stock" : "In of Stock";
+  toggleButton.addEventListener("click", () => {
+    inStock.textContent = stock ? "Out Of Stock" : "In Stock";
+    toggleButton.textContent = stock ? "In of Stock" : "Out of Stock";
+    stock = !stock;
+  });
+
+  removeCard.textContent = "Remove";
+  removeEventListener.addEventListener("click", () => {
+    puppetList.removeChild(puppetItem)
+  })
+
+  puppetContainer.append(puppetNameHeader, puppetType, puppetSize, quantity, price, inStock, toggleButton, removeCard);
   puppetItem.append(puppetImage, puppetContainer);
   puppetList.append(puppetItem);
 
@@ -42,58 +61,3 @@ inStockButton.addEventListener("click", () => {
   const inStockCheckbox = document.getElementById("in-stock");
   inStockCheckbox.checked = !inStockCheckbox.checked;
 });
-/*set up html structure
-select the elements from the dom
-h1 
-input
-body
-main
-define variables
-empty arrays for or objects to store data
-this will hold inventory info for each item
-
-
-set up header and create a container for resource list
-ul form
-write functions for form submission 
-event listener for submit 
-retrieve value entered in input field when form is submitted
-
- create function to generate  inventory cards
- iterate thru inventory for each item create card element
- set card to display info
- append card to container
- 
- add delete button to each list item
- 
- add event listeners to delete button
- 
- add event listeners to click 
- 
- add event listeners to submit 
- 
- add event listeners to cancel 
- 
- get value of input fields and log(event target)
- 
- generate new list item
-
- write functions to generate a  new resource list
- initialize app
-  call functions generate cards existing 
-append fields and submit button to form 
-append input type text
-input placeholder
-input name
-
-
- test 
-append form
-body
-
-
-
-add event listeners to reset 
-reset form
-append form to body
-*/
