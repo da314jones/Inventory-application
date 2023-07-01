@@ -45,32 +45,31 @@
         </ul>
         <div class="center-left box">
             <form>
+                <div id="error-message"></div>
                 <label for="name">Puppet Name:</label>
-                <input type="text" id="name" name="name"><br>
+                <input type="text" id="name" name="name" required><br>
 
                 <label for="puppetType">Puppet Type:</label>
                 <input type="text" id="puppetType" name="puppetType" required><br>
                 
                 <label for="puppetSize">Puppet Size:</label>
-                <input type="number" step="2" min="4" max="18" placeholder='6" - 18"'radius="10px" style="width: 45px" id="puppetSize" name="puppetSize" required><br>
+                <input type="number" id="puppetSize" name="puppetSize" step="2" min="4" max="18" placeholder='6" - 18"'radius="10px" style="width: 45px" required><br>
 
                 <label for="quantity">Quantity:</label>
-                <input type="text" id="quantity" min="100" name="quantity" required><br>
+                <input type="number" id="quantity" name="quantity" min="100" step="100" placeholder="" required><br>
                                 
                 <label for="price">Price:</label>
-                <input type="number" id="price" step="0.01" min="0" placeholder="$0.00" name="price
-                "><br>
+                <input type="number" id="price" name="price" step="0.01" min="0" placeholder="$0.00" required><br>
                 
                 <label for="imgUrl">Image Url</label>
-                <input type="text" id="imgUrl" name="imgUrl"><br>
+                <input type="text" id="imgUrl" name="imgUrl" required><br>
 
-                <input type="checkbox" id="in-stock" name="inStock">
+                <input type="checkbox" id="in-stock" name="inStock" checked>
                 <label for="in-stock">In Stock</label><br>
 
                 <div class="bottom-left box">
                     <button type="submit">Submit</button>
                     <button type="reset">Reset</button>
-                    <button type="inStock">In Stock</button>
                 </div>
             </form>
         </div>
