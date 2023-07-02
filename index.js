@@ -6,40 +6,57 @@ form.addEventListener("submit", (event) => {
   let errorMessage = "";
 
   const nameInput = document.querySelector("#name");
-  const puppetTypeInput = document.querySelector("#puppetType") ;
+  const puppetTypeInput = document.querySelector("#puppetType");
   const puppetSizeInput = document.querySelector("#puppetSize");
   const quantityInput = document.querySelector("#quantity");
   const priceInput = document.querySelector("#price");
   const urlInput = document.querySelector("#imgUrl");
   const imageInput = document.querySelector("#imgUrl");
 
+  
   if (!nameInput.value.trim()) {
-    errorMessage += "Please enter a name./n";
-  }
-  if (!puppetTypeInput.value.trim()) {
-    errorMessage += "Please enter a name./n";
-  }
-  if (!puppetSizeInput.value.trim()) {
-    errorMessage += "Please enter a name./n";
-  }
-  if (!quantityInput.value.trim()) {
-    errorMessage += "Please enter a name./n";
-  }
-  if (!priceInput.value.trim()) {
-    errorMessage += "Please enter a name./n";
-  }
-  if (!urlInput.value.trim()) {
-    errorMessage += "Please enter a name./n";
-  }
-  if (!imageInput.value.trim()) {
-    errorMessage += "Please enter a name./n";
-  }
-  if (errorMessage !== "") {
-    alert(errorMessage);
-    form.reset();
-    return;
+    errorMessage += "Please enter a  model name.\n";
   }
 
+  if (
+    puppetTypeInput.value.trim().toLowerCase() !== "metal" &&
+    puppetTypeInput.value.trim().toLowerCase() !== "wire" &&
+    puppetTypeInput.value.trim().toLowerCase() !== "ball & socket"
+  ) {
+    errorMessage += "Please enter a valid type, (Valid Types include Metal, Wire, Ball & Socket).\n";
+  }
+
+  if (puppetSizeInput.value < 4 || puppetSizeInput.value.trim() > 18) {
+    errorMessage += 'Please enter a size 4" - 18".\n';
+  }
+
+  if (quantityInput.value % 100 !== 0) {
+    errorMessage += "Please enter an amount by 100's.\n";
+  }
+
+
+  const priceIntegers = parseFloat(priceInput.value.trim());
+  if (
+    isNaN(priceIntegers) ||
+    priceIntegers.toFixed(2) !== priceInput.value.trim()
+  ) {
+    errorMessage += "Please enter a dollar and cents.\n";
+  }
+
+  if (urlInput.value.slice(0, 4) !== "http") {
+    errorMessage += "Url must start with http or https.\n";
+  }
+
+  
+  if (errorMessage) {
+    console.log("ERROR MESSAGES")
+    const errorMessageElement = document.getElementById("error-message");
+    errorMessageElement.textContent = errorMessage;
+    errorMessageElement.style.display = "block";
+    form.reset();
+  } else {
+
+  
   console.log(event.target.name.value);
   console.log(event.target.puppetType.value);
   console.log(event.target.puppetSize.value);
@@ -61,19 +78,26 @@ form.addEventListener("submit", (event) => {
   const toggleButton = document.createElement("button");
   const removeButton = document.createElement("button");
 
-  puppetImage.src = event.target.elements.imgUrl.value;
+  puppetImage.src = event.target.imgUrl.value;
+  puppetImage.classList.add("updated-image");
   puppetContainer.classList.add("top-right", "box");
   puppetType.classList.add("type");
   puppetSize.classList.add("size");
   quantity.classList.add("quantity");
   price.classList.add("price");
+  removeButton.classList.add("remove")
+  toggleButton.classList.add("toggle")
+  puppetContainer.appendChild(puppetImage)
 
-  puppetNameHeader.textContent = "Model Name: " + event.target.elements.name.value;
-  puppetType.textContent = "Model Type: " + event.target.elements.puppetType.value;
-  puppetSize.textContent = "Model Size: " + event.target.elements.puppetSize.value;
-  quantity.textContent = "Quantity: " + event.target.elements.quantity.value;
-  price.textContent = "Price Per Unit: " + event.target.elements.price.value;
-  let stock = event.target.elements.inStock.checked;
+  puppetNameHeader.textContent =
+    "Model Name: " + event.target.name.value;
+  puppetType.textContent =
+    "Model Type: " + event.target.puppetType.value;
+  puppetSize.textContent =
+    "Model Size: " + event.target.puppetSize.value;
+  quantity.textContent = "Quantity: " + event.target.quantity.value;
+  price.textContent = "Price Per Unit: " + event.target.price.value;
+  let stock = event.target.inStock.checked;
   inStock.textContent = stock ? "In Stock" : "Out of Stock";
 
   toggleButton.textContent = stock ? "Out of Stock" : "In Stock";
@@ -88,25 +112,20 @@ form.addEventListener("submit", (event) => {
     puppetList.removeChild(puppetItem);
   });
 
-  puppetContainer.append(puppetNameHeader, puppetType, puppetSize, quantity, price, inStock, toggleButton, removeButton);
-  puppetItem.append(puppetImage, puppetContainer);
+  puppetContainer.append(
+    puppetImage,
+    puppetNameHeader,
+    puppetType,
+    puppetSize,
+    quantity,
+    price,
+    inStock,
+    toggleButton,
+    removeButton
+  );
+  puppetItem.append(puppetContainer);
   puppetList.append(puppetItem);
 
   form.reset();
+}
 });
-
-const inStockButton = document.querySelector("button[type='inStock']");
-inStockButton.addEventListener("click", () => {
-  const inStockCheckbox = document.getElementById("in-stock");
-  inStockCheckbox.checked = !inStockCheckbox.checked;
-});
-// stack overflow show error using javascript
-const handleError = (message) => {
-  const errorMessageElement = document.getElementById("error-message");
-  errorMessageElement.textContent = message;
-  errorMessageElement.style.display = "block";
-  setTimeout(() => {
-    errorMessageElement.textContent = "";
-    errorMessageElement.style.direction = "none";
-  }, 3000);
-} 
