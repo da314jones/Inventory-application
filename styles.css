@@ -17,8 +17,7 @@ body {
 
 .form {
   flex: 10 00 25%;
-  /* Adjust the width as needed */
-  /* Other styles for the form */
+
 }
 
 
@@ -32,7 +31,6 @@ body {
   border: 5px solid grey;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-direction: column;
   gap: 20px;
   width: 100%;
@@ -45,10 +43,7 @@ body {
 
 .left-center {
     flex: 0 00 20%;
-    /* Adjust the width as needed */
-    /* Other styles for the left-center element */
   background-color: grey;
-  /* display: flex;*/
   flex-direction: rows;
   border-radius: 10px;
   grid-column: 1 / span 1;
@@ -257,12 +252,6 @@ button[type="submit"] {
   }
 }
 
-/* @media (max-width: 768px) {
-  header {
-    display: grid;
-  grid-template-columns: 1fr;
-} */
-
 main {
   display: grid;
   grid-template-columns: 1fr;
@@ -271,7 +260,6 @@ main {
 
 
 button:hover {
-  /* Hover styles */
   background-color: orangered;
   color: #fff;
 }
