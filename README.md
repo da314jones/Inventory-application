@@ -1,59 +1,40 @@
-Inventory App
-Setting Expectations
-This project will test what he have learned so far about HTML, CSS and DOM manipulation.
+# Stop Motion Armatures
 
-If you are stuck, or need help it is essential that you ask for help.
+<br>
 
-You must Own Your Pursuit . If you do not understand a topic, this is where we learn it.
+## Welcome to Stop Motion Armatures, a web application for managing and displaying stop motion puppet armatures. This application allows you to add new puppet models with their details and images, toggle their stock status, and remove them from the list.
 
-Steps to Complete the HTML Inventory App
-Below is a helpful guide to assist in organizing your working process.
+<br>
 
-Project Setup
+### **Getting Started**
 
-Create a new GitHub repository for the inventory app.
-Create an index.html file and a separate styles.css file in the project directory.
-Set up a basic HTML structure in the index.html file.
-add some basic stlye and simple console.log() to ensure your files are connected
-HTML Structure
+<br>
 
-Create basic HTML structure including <header> that displays title, a contianer <div> to display resources, <form> element for user to input new reousrces
-Choose your Resource - model your resource (books, recipee, shoes) to have three fields inluding inStock, price, name, and two other resource of your choosing
-Inside the container create one resource with fields of your choice in each resource element. Use this field to build and test your functionality. Add more resources once everything is stlyed and functional.
-Form Setup
+*To use the Stop Motion Armatures app, please follow these steps:*
 
-Add a form at the bottom of the page to allow users to add new resources.
-Include input fields for all the required fields: name, price, in stock, and any other needed fields.
-Include a "Submit" button and a "Reset" button in the form.
-Interactive Features
+<br>
 
-Create 'click' event listeners. Have them console log the event.target first. Add functionality later.
-Write JavaScript code to handle the "Remove" button functionality. Connect it with your remove button.
-When a user clicks the "Remove" button for a resource, remove the corresponding resource element from the page.
-Implement an interaction to update the "in stock" value for existing resources. Connect it to your update button.
-Toggle the "in stock" status between "in stock" and "out of stock" when the user interacts with this element.
-Form Validation and Resource Creation
+1. Open the app.html file in your web browser.
+<br>
+2. Enter the puppet's name, type, size, quantity, price, and image URL.
+<br>
+3. Check the "In Stock" checkbox when first adding stock to inventory.
+<br>
+4. Click the "Submit" button to add the puppet to the list.
+<br>
+The new puppet will appear in the list on the right side of the page.
+<br>
+5. To toggle the stock status of a puppet, click the "In Stock" or "Out of Stock" button below the puppet's details.<br>
+6. To remove a puppet from the list, click the "Remove" button below the puppet's details.<br>
+You can add multiple puppets by repeating steps 2-5.<br>
+Use urls below to populate the URL input field.
 
-Add form validation using JavaScript. How do we know a user entered the correct data?
-Ensure that at least three fields in the form are required.
-If the form is submitted with missing or invalid fields, display an error message to the user.
-Clear the form fields and do not create a resource if the requirements are not met.
-When the form is completed correctly, clear the form and add a new resource element at the top of the existing resources.
-Styling
+<br>
+<br>
 
-Open the styles.css file and link it to your index.html file using the <link> tag.
-Decide on your grid - how will you display your columns.
-Choose a color scheme for your applicaiton.
-Utilize CSS Grid to create a two-column or greater layout for the page.
-Apply cohesive and professional styling to the elements, making use of the specified colors.
-Create proper media queries to update our display for secific screen sizes.
-Scale
-
-If your application is working with one resource, create multiple instances of your resource and ensure your functionality is working for each.
-Update the README.md file in your GitHub repository with setup instructions and a guide on how to run your application.
-implement flex features
-Tips
-commit every hour or more
-do not start this project on Saturday
-console.log() every step of the way
-do not copy code from the lecture notes - look at the lecture notes and write your own code;
+- https://i.ebayimg.com/images/g/RWQAAOSwsA5h6ick/s-l1600.jpg<br>
+- https://i.pinimg.com/564x/5d/6d/8c/5d6d8c554cd019b568659fb96aa50aff.jpg<br>
+- http://4.bp.blogspot.com/_b3o2DQcWwPo/TU8Y6TfL-bI/AAAAAAAAAGA/uE_sxMSR1xA/s1600/06022011444.jpg<br>
+- https://www.nomagnolia.tv/wp-content/uploads/2015/06/Anim3-e1434364357341.jpg<br>
+- https://i.pinimg.com/564x/00/ff/82/00ff828f1d05bea574e2ab3dfad0ee73.jpg<br>
+- https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_627128_589188_1687486787_1_0.jpg<br>
