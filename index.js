@@ -13,7 +13,6 @@ form.addEventListener("submit", (event) => {
   const urlInput = document.querySelector("#imgUrl");
   const imageInput = document.querySelector("#imgUrl");
 
-  
   if (!nameInput.value.trim()) {
     errorMessage += "Please enter a  model name.\n";
   }
@@ -23,7 +22,8 @@ form.addEventListener("submit", (event) => {
     puppetTypeInput.value.trim().toLowerCase() !== "wire" &&
     puppetTypeInput.value.trim().toLowerCase() !== "ball & socket"
   ) {
-    errorMessage += "Please enter a valid type, (Valid Types include Metal, Wire, Ball & Socket).\n";
+    errorMessage +=
+      "Please enter a valid type, (Valid Types include Metal, Wire, Ball & Socket).\n";
   }
 
   if (puppetSizeInput.value < 4 || puppetSizeInput.value.trim() > 18) {
@@ -33,7 +33,6 @@ form.addEventListener("submit", (event) => {
   if (quantityInput.value % 100 !== 0) {
     errorMessage += "Please enter an amount by 100's.\n";
   }
-
 
   const priceIntegers = parseFloat(priceInput.value.trim());
   if (
@@ -47,85 +46,104 @@ form.addEventListener("submit", (event) => {
     errorMessage += "Url must start with http or https.\n";
   }
 
-  
   if (errorMessage) {
-    console.log("ERROR MESSAGES")
+    console.log("ERROR MESSAGES");
     const errorMessageElement = document.getElementById("error-message");
     errorMessageElement.textContent = errorMessage;
     errorMessageElement.style.display = "block";
     form.reset();
   } else {
+    console.log(event.target.name.value);
+    console.log(event.target.puppetType.value);
+    console.log(event.target.puppetSize.value);
+    console.log(event.target.quantity.value);
+    console.log(event.target.price.value);
+    console.log(event.target.imgUrl.value);
+    console.log(event.target.inStock.checked);
 
-  
-  console.log(event.target.name.value);
-  console.log(event.target.puppetType.value);
-  console.log(event.target.puppetSize.value);
-  console.log(event.target.quantity.value);
-  console.log(event.target.price.value);
-  console.log(event.target.imgUrl.value);
-  console.log(event.target.inStock.checked);
+    const puppetList = document.querySelector("ul");
+    const puppetItem = document.createElement("li");
+    const puppetImage = document.createElement("img");
+    const puppetContainer = document.createElement("div");
+    const puppetNameHeader = document.createElement("h2");
+    const puppetType = document.createElement("li");
+    const puppetSize = document.createElement("li");
+    const quantity = document.createElement("li");
+    const price = document.createElement("li");
+    const inStock = document.createElement("li");
+    const toggleButton = document.createElement("button");
+    const removeButton = document.createElement("button");
 
-  const puppetList = document.querySelector("ul");
-  const puppetItem = document.createElement("li");
-  const puppetImage = document.createElement("img");
-  const puppetContainer = document.createElement("div");
-  const puppetNameHeader = document.createElement("h2");
-  const puppetType = document.createElement("li");
-  const puppetSize = document.createElement("li");
-  const quantity = document.createElement("li");
-  const price = document.createElement("li");
-  const inStock = document.createElement("li");
-  const toggleButton = document.createElement("button");
-  const removeButton = document.createElement("button");
+    puppetImage.src = event.target.imgUrl.value;
+    puppetImage.classList.add("updated-image");
+    puppetContainer.classList.add("top-right", "box");
+    puppetType.classList.add("type");
+    puppetSize.classList.add("size");
+    quantity.classList.add("quantity");
+    price.classList.add("price");
+    removeButton.classList.add("remove");
+    toggleButton.classList.add("toggle");
+    puppetContainer.appendChild(puppetImage);
 
-  puppetImage.src = event.target.imgUrl.value;
-  puppetImage.classList.add("updated-image");
-  puppetContainer.classList.add("top-right", "box");
-  puppetType.classList.add("type");
-  puppetSize.classList.add("size");
-  quantity.classList.add("quantity");
-  price.classList.add("price");
-  removeButton.classList.add("remove")
-  toggleButton.classList.add("toggle")
-  puppetContainer.appendChild(puppetImage)
+    puppetNameHeader.textContent = "Model Name: " + event.target.name.value;
+    puppetType.textContent = "Model Type: " + event.target.puppetType.value;
+    puppetSize.textContent = "Model Size: " + event.target.puppetSize.value;
+    quantity.textContent = "Quantity: " + event.target.quantity.value;
+    price.textContent = "Price Per Unit: " + event.target.price.value;
+    let stock = event.target.inStock.checked;
+    inStock.textContent = stock ? "In Stock" : "Out of Stock";
 
-  puppetNameHeader.textContent =
-    "Model Name: " + event.target.name.value;
-  puppetType.textContent =
-    "Model Type: " + event.target.puppetType.value;
-  puppetSize.textContent =
-    "Model Size: " + event.target.puppetSize.value;
-  quantity.textContent = "Quantity: " + event.target.quantity.value;
-  price.textContent = "Price Per Unit: " + event.target.price.value;
-  let stock = event.target.inStock.checked;
-  inStock.textContent = stock ? "In Stock" : "Out of Stock";
+    toggleButton.textContent = stock ? "Out of Stock" : "In Stock";
+    toggleButton.addEventListener("click", () => {
+      inStock.textContent = stock ? "Out of Stock" : "In Stock";
+      toggleButton.textContent = stock ? "In Stock" : "Out of Stock";
+      stock = !stock;
+    });
 
-  toggleButton.textContent = stock ? "Out of Stock" : "In Stock";
-  toggleButton.addEventListener("click", () => {
-    inStock.textContent = stock ? "Out of Stock" : "In Stock";
-    toggleButton.textContent = stock ? "In Stock" : "Out of Stock";
-    stock = !stock;
-  });
+    removeButton.textContent = "Remove";
+    removeButton.addEventListener("click", () => {
+      puppetList.removeChild(puppetItem);
+    });
 
-  removeButton.textContent = "Remove";
-  removeButton.addEventListener("click", () => {
-    puppetList.removeChild(puppetItem);
-  });
+    puppetContainer.append(
+      puppetImage,
+      puppetNameHeader,
+      puppetType,
+      puppetSize,
+      quantity,
+      price,
+      inStock,
+      toggleButton,
+      removeButton
+    );
+    puppetItem.append(puppetContainer);
+    puppetList.append(puppetItem);
 
-  puppetContainer.append(
-    puppetImage,
-    puppetNameHeader,
-    puppetType,
-    puppetSize,
-    quantity,
-    price,
-    inStock,
-    toggleButton,
-    removeButton
-  );
-  puppetItem.append(puppetContainer);
-  puppetList.append(puppetItem);
-
-  form.reset();
-}
+    form.reset();
+    
+  }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// published
