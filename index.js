@@ -1,3 +1,10 @@
+const modeToggle = document.getElementById("dark-mode");
+const body = document.body;
+
+modeToggle.addEventListener("click", function () {
+  body.classList.toggle("dark-mode");
+});
+
 const form = document.querySelector("form");
 const puppetList = document.querySelector("ul");
 
@@ -14,7 +21,7 @@ form.addEventListener("submit", (event) => {
   const imageInput = document.querySelector("#imgUrl");
 
   if (!nameInput.value.trim()) {
-    errorMessage += "Please enter a  model name.\n";
+    errorMessage += "Please enter a model name.\n";
   }
 
   if (
@@ -23,15 +30,15 @@ form.addEventListener("submit", (event) => {
     puppetTypeInput.value.trim().toLowerCase() !== "ball & socket"
   ) {
     errorMessage +=
-      "Please enter a valid type, (Valid Types include Metal, Wire, Ball & Socket).\n";
+      "Please enter a valid type (Valid types include Metal, Wire, Ball & Socket).\n";
   }
 
   if (puppetSizeInput.value < 4 || puppetSizeInput.value.trim() > 18) {
-    errorMessage += 'Please enter a size 4" - 18".\n';
+    errorMessage += 'Please enter a size between 4" and 18".\n';
   }
 
   if (quantityInput.value % 100 !== 0) {
-    errorMessage += "Please enter an amount by 100's.\n";
+    errorMessage += "Please enter a quantity in multiples of 100.\n";
   }
 
   const priceIntegers = parseFloat(priceInput.value.trim());
@@ -39,11 +46,11 @@ form.addEventListener("submit", (event) => {
     isNaN(priceIntegers) ||
     priceIntegers.toFixed(2) !== priceInput.value.trim()
   ) {
-    errorMessage += "Please enter a dollar and cents.\n";
+    errorMessage += "Please enter a valid price (e.g., 37.00).\n";
   }
 
   if (urlInput.value.slice(0, 4) !== "http") {
-    errorMessage += "Url must start with http or https.\n";
+    errorMessage += "URL must start with http or https.\n";
   }
 
   if (errorMessage) {
@@ -61,7 +68,6 @@ form.addEventListener("submit", (event) => {
     console.log(event.target.imgUrl.value);
     console.log(event.target.inStock.checked);
 
-    const puppetList = document.querySelector("ul");
     const puppetItem = document.createElement("li");
     const puppetImage = document.createElement("img");
     const puppetContainer = document.createElement("div");
@@ -120,30 +126,5 @@ form.addEventListener("submit", (event) => {
     puppetList.append(puppetItem);
 
     form.reset();
-    
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// published

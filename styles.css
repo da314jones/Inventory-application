@@ -6,9 +6,6 @@ body {
   padding: 0;
 }
 
-
-
-
 .row {
   display: flex;
   flex-direction: row;
@@ -17,6 +14,9 @@ body {
 
 .form {
   flex: 10 00 25%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -40,16 +40,16 @@ body {
   grid-column: 1 / span 1;
 }
 
+#price,
+#puppetSize {
+  color: black;
+}
 form {
   margin: 10px;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-}
-
-.form {
-  display: flex;
-flex-direction: column;
+  width: 74.5%;
 }
 
 ul,
@@ -57,6 +57,12 @@ form,
 .left-center,
 .top-right {
   justify-self: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px 0;
 }
 
 .main.container {
@@ -75,14 +81,23 @@ h1 {
   border: 1px solid black;
   border-radius: 50%;
   background-color: silver;
-  }
+  width: 100%;
+}
+
+h1,
+#dark-mode {
+  font-weight: bold;
+  color: black;
+  border: 1px solid black;
+  border-radius: 50%;
+}
 
 h2 {
   text-decoration: underline;
 }
 
 ul {
-  border: 10px solid black;
+  border: 10px solid green;
   list-style: none;
   grid-column: 1 / span 2;
   grid-row: 3;
@@ -100,7 +115,6 @@ ul {
   grid-row: span 1;
 }
 
-
 li {
   display: flex;
   align-items: center;
@@ -109,8 +123,9 @@ li {
 
 img {
   margin-right: 10px;
-  border-right: 5px solid black;
-  border-bottom: 5px solid black;
+  border-right: 5px solid green;
+  border-bottom: 5px solid green;
+  border-top: 5px solid green;
 }
 
 p {
@@ -127,14 +142,14 @@ p {
 
 .grid-item {
   grid-column: 1 / span 3;
-  background-color: rgb(150, 156, 163);
+  background-color: white;
   border-radius: 10px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
-  border: 10px solid green;
+  align-items: center;
+  border: 10px solid black;
   text-align: center;
   width: 100%;
 }
@@ -153,33 +168,31 @@ p {
 
 .bottom-left {
   border: 2px solid black;
-  position: absolute;
+  position: relative;
+  right: 200px;
   bottom: 20px;
-  left: 10%;
   background-color: #fff4e6;
-
 }
 
 label {
   font-size: 20px;
   text-decoration: underline;
   font-weight: bold;
-  margin: none;
+  margin-left: 40px;
   color: black;
-  width: 100%;
 }
 
 input[type="text"],
 input[type="number"],
 input[type="checkbox"] {
-  margin: none;
+  margin-left: 21px;
   padding: none;
   border-radius: 10px;
-  border: 1px solid #ccc;
-  width: 74.5%;
+  border: 1px solid green;
+  width: 100%;
   height: 25px;
   box-sizing: border-box;
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
 }
 
 input[type="text"]::placeholder,
@@ -201,6 +214,11 @@ button {
 }
 
 button[type="submit"] {
+  margin-left: 40px;
+}
+
+button[type="submit"],
+button[type="dark-mode"] {
   margin-top: 10px;
   border: 2px solid black;
   width: 40%;
@@ -209,7 +227,6 @@ button[type="submit"] {
   font-size: 20px;
   font-weight: bold;
   border-radius: 50%;
-
 }
 
 .remove,
@@ -236,21 +253,115 @@ button[type="submit"] {
   .row {
     flex-direction: column;
   }
-  
+
   .form,
   .left-center {
     flex: 0 0 100%;
   }
 }
 
-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 50px 0;
-}
-
-
 button:hover {
   background-color: orangered;
   color: #fff;
+}
+
+body {
+  display: flex;
+  width: 80%;
+  font-family: Arial, sans-serif;
+  margin-left: 10%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode .top-left {
+  background-color: lightgray;
+}
+
+.dark-mode button {
+  color: #1e1e1e;
+}
+
+.container {
+  border: 5px solid grey;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.dark-mode .container {
+  border-color: #ffffff;
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-mode ul {
+  border-color: black;
+  color: #ffffff;
+}
+
+.dark-mode .grid-item {
+  border-color: green;
+  color: #ffffff;
+}
+
+.dark-mode img {
+  border-color: black;
+  color: #ffffff;
+}
+
+.dark-mode,
+input[type="text"],
+input[type="number"],
+input[type="checkbox"] {
+  border-color: black;
+  color: #ffffff;
+}
+
+.dark-mode h1 {
+  background-color: green;
+  color: black;
+}
+
+.dark-mode ul,
+.dark-mode form,
+.dark-mode .left-center,
+.dark-mode .top-right {
+  color: #ffffff;
+}
+
+.dark-mode .top-right li {
+  background-color: #424242;
+}
+
+.dark-mode .third-row-center {
+  color: black;
+}
+
+.dark-mode .box.type {
+  background-color: #1e88e5;
+}
+
+.dark-mode .box.size {
+  background-color: #43a047;
+}
+
+.dark-mode .box.quantity {
+  background-color: #fb8c00;
+}
+
+.dark-mode .box.price {
+  background-color: #f44336;
 }
