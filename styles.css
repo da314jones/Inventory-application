@@ -17,15 +17,7 @@ body {
 
 .form {
   flex: 10 00 25%;
-
 }
-
-
-
-
-
-
-
 
 .container {
   border: 5px solid grey;
@@ -42,8 +34,7 @@ body {
 }
 
 .left-center {
-    flex: 0 00 20%;
-  background-color: grey;
+  flex: 0 00 20%;
   flex-direction: rows;
   border-radius: 10px;
   grid-column: 1 / span 1;
@@ -94,11 +85,10 @@ h2 {
 ul {
   border: 10px solid black;
   list-style: none;
-  padding: 0;
   grid-column: 1 / span 2;
   grid-row: 3;
   margin: 10px;
-  padding: 20px;
+  padding: 0;
   border-radius: 10px;
 }
 
@@ -120,7 +110,8 @@ li {
 
 img {
   margin-right: 10px;
-  border: 2px solid black;
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
 }
 
 p {
@@ -185,7 +176,7 @@ input[type="checkbox"] {
   padding: none;
   border-radius: 10px;
   border: 1px solid #ccc;
-  width: 100%;
+  width: 74.5%;
   height: 25px;
   box-sizing: border-box;
   background-color: lightgrey;
