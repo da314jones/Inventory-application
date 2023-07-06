@@ -30,7 +30,6 @@ You can add multiple puppets by repeating steps 2-5.<br>
 Use urls below to populate the URL input field.
 
 <br>
-<br>
 
 - https://i.ebayimg.com/images/g/RWQAAOSwsA5h6ick/s-l1600.jpg<br>
 - https://i.pinimg.com/564x/5d/6d/8c/5d6d8c554cd019b568659fb96aa50aff.jpg<br>
@@ -38,3 +37,4 @@ Use urls below to populate the URL input field.
 - https://www.nomagnolia.tv/wp-content/uploads/2015/06/Anim3-e1434364357341.jpg<br>
 - https://i.pinimg.com/564x/00/ff/82/00ff828f1d05bea574e2ab3dfad0ee73.jpg<br>
 - https://images1.sw-cdn.net/cdn-cgi/image/quality=85,gravity=auto,format=auto,fit=scale-down,width=1920/product/picture/710x528_627128_589188_1687486787_1_0.jpg<br>
+
