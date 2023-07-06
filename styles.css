@@ -61,7 +61,6 @@ form,
 
 .main.container {
   display: grid;
-  width: 100%;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   grid-gap: 20px;
@@ -137,6 +136,7 @@ p {
   align-items: center; 
   border: 10px solid green;
   text-align: center;
+  width: 100%;
 }
 
 .third-row-center {
