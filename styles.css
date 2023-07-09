@@ -335,7 +335,7 @@ input[type="text"],
 input[type="number"],
 input[type="checkbox"] {
   border-color: black;
-  color: #ffffff;
+  color: black;
 }
 
 .dark-mode h1 {
@@ -347,11 +347,11 @@ input[type="checkbox"] {
 .dark-mode form,
 .dark-mode .left-center,
 .dark-mode .top-right {
-  color: #ffffff;
+  color: black;
 }
 
 .dark-mode .top-right li {
-  background-color: #424242;
+  background-color: white;
 }
 
 .dark-mode .third-row-center {
