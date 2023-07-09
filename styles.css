@@ -92,13 +92,13 @@ h1 {
   width: 100%;
 }
 
-h1,
+/* h1,
 #dark-mode {
   font-weight: bold;
   color: black;
   border: 1px solid black;
   border-radius: 50%;
-}
+} */
 
 h2 {
   text-decoration: underline;
