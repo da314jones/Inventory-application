@@ -92,14 +92,6 @@ h1 {
   width: 100%;
 }
 
-/* h1,
-#dark-mode {
-  font-weight: bold;
-  color: black;
-  border: 1px solid black;
-  border-radius: 50%;
-} */
-
 h2 {
   text-decoration: underline;
 }
@@ -261,7 +253,7 @@ button[type="dark-mode"] {
   html {
     display: none;
   }
-
+  
   main {
     width: 90%;
   }
@@ -271,7 +263,7 @@ button[type="dark-mode"] {
   .row {
     flex-direction: column;
   }
-
+  
   .form,
   .left-center {
     flex: 0 0 100%;
@@ -290,6 +282,14 @@ body {
   margin-left: 10%;
   overflow: hidden;
   background-color: white;
+}
+
+h1,
+#dark-mode {
+  font-weight: bold;
+  color: black;
+  border: 1px solid black;
+  border-radius: 50%;
 }
 
 .dark-mode {
