@@ -258,6 +258,11 @@ button[type="dark-mode"] {
     display: none;
   }
 
+@media (min-width: 320) {
+  html {
+    display: none;
+  }
+
   main {
     width: 90%;
   }
