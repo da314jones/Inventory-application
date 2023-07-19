@@ -7,6 +7,13 @@ modeToggle.addEventListener("click", function () {
 
 const form = document.querySelector("form");
 const puppetList = document.querySelector("ul");
+const imgUrlSelect = document.querySelector("#imgUrl");
+const imagePreview = document.querySelector("#imagePreview");
+
+imgUrlSelect.addEventListener("change", function () {
+  imagePreview.src = this.value;
+  imagePreview.style.display = "block";
+});
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -18,7 +25,6 @@ form.addEventListener("submit", (event) => {
   const quantityInput = document.querySelector("#quantity");
   const priceInput = document.querySelector("#price");
   const urlInput = document.querySelector("#imgUrl");
-  const imageInput = document.querySelector("#imgUrl");
 
   if (!nameInput.value.trim()) {
     errorMessage += "Please enter a model name.\n";
@@ -100,11 +106,15 @@ form.addEventListener("submit", (event) => {
     inStock.textContent = stock ? "In Stock" : "Out of Stock";
 
     toggleButton.textContent = stock ? "Out of Stock" : "In Stock";
+    toggleButton.classList.add(stock ? "in-stock" : "out-of-stock");
     toggleButton.addEventListener("click", () => {
-      inStock.textContent = stock ? "Out of Stock" : "In Stock";
-      toggleButton.textContent = stock ? "In Stock" : "Out of Stock";
       stock = !stock;
+      inStock.textContent = stock ? "In Stock" : "Out of Stock";
+      toggleButton.textContent = stock ? "Out of Stock" : "In Stock";
+      toggleButton.classList.toggle("in-stock");
+      toggleButton.classList.toggle("out-of-stock");
     });
+
 
     removeButton.textContent = "Remove";
     removeButton.addEventListener("click", () => {
@@ -126,5 +136,10 @@ form.addEventListener("submit", (event) => {
     puppetList.append(puppetItem);
 
     form.reset();
+    imagePreview.style.display = "none";
+
+    toggleButton.classList.remove("in-stock", "out-of-stock");
+    toggleButton.classList.add(stock ? "in-stock" : "out-of-stock");
+
   }
 });

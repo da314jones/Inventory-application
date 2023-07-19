@@ -2,87 +2,72 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Stop Motion Armatures</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-    <script src="index.js" async defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Stop Motion Armatures</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js" async defer></script>
 </head>
 
 <body>
-    <main class="container">
-        <h1>Stop Motion Armatures</h1>
-        <button id="dark-mode">Dark Mode</button>
+  <header>
+    <h1>Stop Motion Armatures</h1>
+  </header>
+  <div class="dark-mode">
+    <button id="dark-mode">Dark Mode</button>
+  </div>
+  <main class="flex-container">
 
-        <div class="grid-item top-left">
-            <div class="row">
-                <div class="form">
-                    <form>
-                        <div id="error-message"></div>
-                        <label for="name">Puppet Name:</label>
-                        <input type="text" id="name" name="name" required><br>
+    <div class="flex-item-left">
+      <form>
+        <div id="error-message"></div>
+        <label for="name">Puppet Name:</label>
+        <input type="text" id="name" name="name" required>
 
-                        <label for="puppetType">Puppet Type:</label>
-                        <input type="text" id="puppetType" name="puppetType" required><br>
+        <label for="puppetType">Puppet Type:</label>
+        <input type="text" id="puppetType" name="puppetType" required>
 
-                        <label for="puppetSize">Puppet Size:</label><br>
-                        <input type="number" id="puppetSize" name="puppetSize" step="2" min="4" max="18"
-                            placeholder='6" - 18"' radius="10px" required><br>
+        <label for="puppetSize">Puppet Size:</label>
+        <input type="number" id="puppetSize" name="puppetSize" step="2" min="4" max="18" placeholder='6" - 18"'
+          radius="10px" required>
 
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" min="100" step="100" placeholder=""
-                            required><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="100" step="100" placeholder="" required>
 
-                        <label for="price">Price Per Unit:</label>
-                        <input type="number" id="price" name="price" step="0.01" min="0" placeholder="$0.00"
-                            required><br>
+        <label for="price">Price Per Unit:</label>
+        <input type="number" id="price" name="price" step="0.01" min="0" placeholder="$0.00" required>
 
-                        <label for="imgUrl">Image Url</label>
-                        <input type="text" id="imgUrl" name="imgUrl" required><br>
+        <label for="imgUrl">Image Url</label>
+        <input type="text" id="imgUrl" name="imgUrl" required>
 
-                        <label for="in-stock">In Stock</label><br>
-                        <input type="checkbox" id="in-stock" name="inStock" checked>
-                        <br>
-                        <button type="submit">Submit</button>
-
-                    </form>
-                </div>
-                <div class="left-center">
-                    <ul>
-                        <li>
-                            <img src="./images/stopMotionPuppet.jpg" width="150" height="200" alt="puppet"
-                                name="default-image">
-                            <div class="third-row-center">
-                                <h2>Brightly Innovative</h2>
-                                <div>
-                                    <p>Puppet Type:
-                                        <span class="box type">Metal</span>
-                                    </p>
-                                </div>
-                                <div>
-                                    <p>Puppet size:
-                                        <span class="box size">6</span>
-                                    </p>
-                                    <div>
-                                        <p>Quantity:
-                                            <span class="box quantity" type="number">100</span>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>Price Per Unit:
-                                        <span class="box price">37.00</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </main>
+        <label for="in-stock">In Stock</label>
+        <input type="checkbox" id="in-stock" name="inStock" checked>
+        <button id="submit" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="flex-item-right">
+      <ul>
+        <li class="default-puppet">
+          <img src="./assets/stopMotionPuppet.jpg" width="150" height="200" alt="puppet" name="default-image">
+          <h2>Brightly Innovative</h2>
+          <p>Puppet Type:
+            <span class="box type">Metal</span>
+          </p>
+          <p>Puppet size:
+            <span class="box size">6</span>
+          </p>
+          <p>Quantity:
+            <span class="box quantity" type="number">100</span>
+          </p>
+          <p>Price Per Unit:
+            <span class="box price">37.00</span>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </main>
 </body>
 
 </html>
