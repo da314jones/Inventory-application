@@ -56,18 +56,13 @@ h1 {
   justify-content: center;
 }
 
-.dark-mode {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
+
 
 #dark-mode {
   display: flex;
-  background-color: rgb(17, 17, 17);
-  color: whitesmoke;
-  width: 50px;
-  height: 50px;
+
+  font-size: 0%;
+  border: none;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
@@ -92,10 +87,6 @@ form {
   height: 550px;
   display: grid;
   justify-content: center;
-}
-
-button {
-  border-radius: 50%;
 }
 
 input {
